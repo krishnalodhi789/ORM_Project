@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Seller Signup{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row py-3">
+        <div class="col-4 m-auto shadow-lg p-4">
+            <form method="Post" class="row">
+                {% csrf_token %}
+                <div class="mb-3 col-12">
+                    <label for="Username" class="form-label">Username :</label>
+                    <input type="text" class="form-control" id="Username" placeholder="" name="username">
+                </div>
+                
+                <div class="mb-3 col-12">
+                    <label for="city" class="form-label">password :</label>
+                    <input type="password" class="form-control" id="city" placeholder="" name="password">
+                </div>
+                <div><button class="btn btn-outline-success" type="submit"> Submit </button></div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

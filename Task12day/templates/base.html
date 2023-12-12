@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}{% endblock title %}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.2/font/bootstrap-icons.min.css"
+      integrity="sha512-D1liES3uvDpPrgk7vXR/hR/sukGn7EtDWEyvpdLsyalQYq6v6YUsTUJmku7B4rcuQ21rf0UTksw2i/2Pdjbd3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- This si header--------------- -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a
+          class="navbar-brand text-primary"
+          style="font-family: cursive"
+          href="{% url 'index' %}"
+        >
+          <img
+            src="{% static 'images/flipkardLogo.png' %}"
+            alt=""
+            style="height: 50px; width: 50px"
+          />
+          Flipkard</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <div class="px-3 ms-auto">
+            {% if user.is_authenticated %}
+            <a href="{% url 'buyerwallet' %}"
+              ><button class="btn btn-outline-dark mx-3">
+                <img
+                  src="{% static 'images/pic.png' %}"
+                  alt=""
+                  style="height: 25px; width: 25px"
+                />
+                {{user.username}} </button
+            ></a>
+            <a href="{% url 'buyerlogout' %}"
+              ><button class="btn btn-outline-dark mx-3">
+                Logout <i class="bi bi-box-arrow-right"></i></button
+            ></a>
+            {% else %}
+            <a href="{% url 'buyersignup' %}"
+              ><button class="btn btn-outline-dark mx-3">
+                Create Accound
+              </button></a
+            >
+            <a href="{% url 'buyerlogin' %}"
+              ><button class="btn btn-outline-dark mx-3">Login</button></a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Closed header--------------- -->
+
+    <!-- body Section ============================================ {% -->
+      {% block content %}{% endblock content %}
+     <!-- closed body Section ============================================ -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

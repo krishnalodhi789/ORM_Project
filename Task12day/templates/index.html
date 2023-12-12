@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+  Seller Portal
+{% endblock title %}
+
+{% block content %}
+  <div class="container my-4">
+    <div class="row row-cols-4 g-4">
+
+      {% for item in products  %}
+      <div class="col p-1">
+      <div class="card h-100 p-1 border-0 shadow" style="width: 18rem;">
+        <img src="{{item.product_image.url}}" class="card-img-top" alt="..." style="height:250px; width:100%">
+        <div class="card-body">
+          <h6 class="card-title">{{item.title}}</h6>
+          <span class="text-primary"><i class="bi bi-currency-rupee"></i> {{item.price}}</span>
+          <p class="card-text mb-0">{{item.description}}</p>
+        </div>
+        <hr>
+        <div class="text-center">
+          {% if item.buyer_id %}
+          <button class="btn btn-outline-danger" disabled>Sold</button></a>
+          {% else %}
+          <a href="{% url 'userbuy' id=item.id %}"><button class="btn btn-outline-success"> Buy Now</button></a>
+          {% endif %}
+        </div>
+      </div> 
+    </div>
+      {% endfor %}     
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+  Seller Portal
+{% endblock title %}
+
+{% block content %}
+  <div class="container mt-3">
+    <div class="row mb-3">
+      <h1 class="display-4 text-center">
+        Your Product.
+      </h1>
+    </div>
+    {% for item in data  %}
+    <div class="row row-cols-5">
+      <div class="col">
+        <img src="{{item.product.product_image.url}}" alt="" style="height: 100px; width:120px">
+      </div>
+      <div class="col d-flex flext-column align-items-center">{{item.product.category}}</div>
+      <div class="col d-flex flext-column align-items-center">{{item.product.title}}</div>
+      <div class="col d-flex flext-column align-items-center"><i class="bi bi-currency-rupee"></i> {{item.product.price}}</div>
+      <div class="col d-flex flext-column align-items-center">{{item.product.description}}</div>
+  </div>
+  <hr>
+    {% endfor %}
+  </div>
+{% endblock content %}

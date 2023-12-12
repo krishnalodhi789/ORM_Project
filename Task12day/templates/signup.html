@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Seller Signup{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row py-4">
+        <div class="col-5 mx-auto  p-3 shadow-lg">
+            <form method="Post" class="row">
+                {% csrf_token %}
+                
+                <div class="mb-3 col-12">
+                    <label for="fullname" class="form-label">Create Username :</label>
+                    <input type="text" class="form-control" id="fullname" placeholder="" name="username">
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="fullname" class="form-label">Full Name :</label>
+                    <input type="text" class="form-control" id="fullname" placeholder="" name="full_name">
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="email" class="form-label">Email ID :</label>
+                    <input type="email" class="form-control" id="email" placeholder="" name="email">
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="mobile" class="form-label">Phone No</label>
+                    <input type="text" class="form-control" id="mobile" placeholder="" name="phone">
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="city" class="form-label">City :</label>
+                    <input type="text" class="form-control" id="city" placeholder="" name="city">
+                </div>                
+                <div class="mb-3 col-12 ">
+                    <label for="city" class="form-label">Password :</label>
+                    <input type="password" class="form-control" id="city" placeholder="" name="password1">
+                </div > 
+                <div class="mb-3 col-12 ">
+                    <label for="city" class="form-label"> Conform Password :</label>
+                    <input type="password" class="form-control" id="city" placeholder="" name="password2">
+                </div >
+                <div class='col-12 text-center'><button class="btn btn-outline-success" type="submit"> Submit </button></div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

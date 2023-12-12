@@ -1,0 +1,38 @@
+{% extends "sellerTemplates/base.html" %}
+
+{% block title %}Seller Signup{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row py-4">
+        <div class="col-5 mx-auto  p-3 shadow-lg">
+            <form method="Post" class="row" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="mb-3 col-12">
+                    <label for="category" class="form-label">Product Category :</label>
+                    <input type="text" class="form-control" id="category" name="category" required>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="title" class="form-label">Title :</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="email" class="form-label">Price :</label>
+                    <input type="text" class="form-control" id="email" name="price" required>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="mobile" class="form-label">Description :</label>
+                    <textarea name="description" id="" cols="30"  class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="mb-3 col-12">
+                    <label for="formFileMultiple" class="form-label">Upload Product Image :</label>
+                    <input class="form-control" type="file" id="formFileMultiple" accept="*/image" name="image" required>
+                </div >
+                <div class='col-12 text-center'><button class="btn btn-outline-success" type="submit"> Submit </button></div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
